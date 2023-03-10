@@ -1,0 +1,6 @@
+{
+	"rewrites": [
+		{ "source": "/(.*)", "destination": "/api/handler.js" },
+		{ "source": "/migration-helper.html", "destination": "/migration-helper.html" }
+	]
+}
