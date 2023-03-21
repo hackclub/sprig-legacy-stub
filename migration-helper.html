@@ -14,6 +14,11 @@
 	<body>
 		Migrating your Sprig games...
 
+		<form id='form' action='https://sprig.hackclub.com/migration-redirect' method='POST' style='display: none'>
+			<input id='puzzle-lab' name='puzzle-lab' type='hidden' value=''>
+			<input id='redirect' name='redirect' type='hidden' value=''>
+		</form>
+
 		<script>
 			const urlAllowed = (url) => {
 				const parsed = new URL(url)
@@ -50,9 +55,9 @@
 
 			if (params.has('redirect')) {
 				if (!urlAllowed(params.get('redirect'))) throw new Error('Disallowed redirect URL')
-				const parsed = new URL(params.get('redirect'))
-				parsed.searchParams.set('puzzleLab', window.localStorage.getItem('puzzle-lab') || '')
-				window.location.replace(parsed.toString())
+				document.getElementById('puzzle-lab').value = window.localStorage.getItem('puzzle-lab') || ''
+				document.getElementById('redirect').value = params.get('redirect')
+				document.getElementById('form').submit()
 			} else {
 				sendToParent()
 			}
