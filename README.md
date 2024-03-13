@@ -1,3 +1,5 @@
+# This repository has been deprecated. 
+--- 
 # Sprig Legacy Stub
 
 This repo is served at [editor.sprig.hackclub.com](https://editor.sprig.hackclub.com) and:
